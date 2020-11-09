@@ -1,11 +1,6 @@
 <template>
   <div class="container mx-auto">
-    <div class="grid grid-flow-col items-center gap-4">
-      <span>Weeks lived : {{ weeksCount }} </span>
-      <birth-datepicker v-model="age" />
-      <span>Days lived : {{ daysLived }}</span>
-    </div>
-
+    {{ $route.params.count }}
     <div class="years py-10">
       <div class="weeks" v-for="(year, yearIndex) in years" :key="yearIndex">
         <div
@@ -22,38 +17,23 @@
 </template>
 
 <script>
-import birthDatepicker from "vue-birth-datepicker/src/birth-datepicker";
-// if substitution is working:
-// import birthDatepicker from 'vue-birth-datepicker/vue';
 export default {
-  components: {
-    birthDatepicker,
-  },
+  components: {},
   data() {
     return {
       weeks: 52,
       years: 90,
-      age: 628646400000,
     };
   },
   computed: {
-    dob() {
-      return new Date(this.age);
-    },
-    today() {
-      return new Date();
-    },
     weeksCount() {
-      return this.weeksBetween(this.dob, this.today);
+      return this.$route.params.count;
     },
     daysLived() {
       return this.weeksCount * 7;
     },
   },
   methods: {
-    weeksBetween(d1, d2) {
-      return Math.round((d2 - d1) / (7 * 24 * 60 * 60 * 1000));
-    },
     yearId(yearIndex, weekIndex) {
       return yearIndex * this.weeks + weekIndex + 1;
     },
