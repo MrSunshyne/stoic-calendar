@@ -1,9 +1,19 @@
 <template>
   <div class="container mx-auto">
-    <div class="grid grid-flow-col items-center gap-4">
-      <span>Weeks lived : {{ weeksCount }} </span>
-      <birth-datepicker v-model="getAge" />
+    <div class="md:flex justify-center gap-4">
+      <div class="">
+        <birth-datepicker class="w-full" v-model="getAge" :hideHeader="true" :inline="true" />
+      </div>
+      <div class="flex flex-col justify-center text-center ">
+        <div class="text-center uppercase font-bold text-sm text-gray-400">
+          Select your date of birth
+        </div>
+        <div class="text-3xl font-serif">
+          {{ getDob }}
+        </div>
+      </div>
     </div>
+    <span>Weeks lived : {{ weeksCount }} </span>
   </div>
 </template>
 
@@ -23,7 +33,7 @@ export default {
         this.$store.commit("SET_AGE", value);
       },
     },
-    ...mapGetters(["weeksCount"]),
+    ...mapGetters(["weeksCount", "getDob"]),
   },
 };
 </script>

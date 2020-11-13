@@ -6,6 +6,7 @@ Vue.use(Vuex);
 
 export default new Vuex.Store({
   state: {
+    // age: null,
     age: 628646400000,
   },
   getters: {
@@ -14,6 +15,9 @@ export default new Vuex.Store({
       let dob = new Date(state.age);
       let today = new Date();
       return weeksBetween(dob, today);
+    },
+    getDob: (state) => {
+      return new Date(state.age).toDateString();
     },
   },
   mutations: {

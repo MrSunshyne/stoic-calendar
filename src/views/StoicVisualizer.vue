@@ -1,16 +1,19 @@
 <template>
   <div class="container mx-auto">
-    {{ $route.params.count }}
     <div class="years py-10">
       <div class="weeks" v-for="(year, yearIndex) in years" :key="yearIndex">
         <div
           v-for="(week, weekIndex) in weeks"
-          class="week overflow-hidden "
-          :class="{ 'bg-black': isActive(yearId(yearIndex, weekIndex)) }"
+          class="week  relative "
+          :class="{ 'bg-black hover:bg-red-500': isActive(yearId(yearIndex, weekIndex)) }"
           :key="yearId(yearIndex, weekIndex)"
         >
-          .
+          <div class="singleWeek  z-10 hidden  absolute top-0 left-0 w-20 text-xs h-10 px-2 bg-gray-500 rounded grid place-items-center">
+            Week {{ yearId(yearIndex, weekIndex) }}
+          </div>
         </div>
+        <!-- Show Age -->
+        <div class="text-gray-400 border-b text-center text-sm">{{ yearIndex + 1 }}</div>
       </div>
     </div>
   </div>
@@ -56,7 +59,8 @@ export default {
   --size: 10px;
   display: grid;
   gap: 10px;
-  grid-template-columns: repeat(52, minmax(var(--size), 1fr));
+  grid-template-columns: repeat(53, minmax(var(--size), 1fr));
+  align-items: center;
 }
 
 .years {
@@ -69,5 +73,14 @@ export default {
   height: var(--size);
   /* background:black; */
   border: 1px solid black;
+  cursor: pointer;
+  content: "&nbsp;";
+}
+
+.week:hover > .singleWeek {
+  display: grid;
+}
+
+.singleWeek {
 }
 </style>
