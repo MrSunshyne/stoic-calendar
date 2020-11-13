@@ -1,13 +1,14 @@
 import Vue from "vue";
 import Vuex from "vuex";
-import { weeksBetween } from "../helpers/index.js";
+import { weeksBetween, isValidDate } from "../helpers/index.js";
 
 Vue.use(Vuex);
 
 export default new Vuex.Store({
   state: {
-    // age: null,
-    age: 628646400000,
+    age: null,
+    // age: 628646400000,
+    enabled: false,
   },
   getters: {
     getAge: (state) => state.age,
@@ -19,10 +20,18 @@ export default new Vuex.Store({
     getDob: (state) => {
       return new Date(state.age).toDateString();
     },
+    isEnabled: (state) => state.enabled,
   },
   mutations: {
     SET_AGE(state, payload) {
+      console.log("setting age to", payload);
+      if (isValidDate(payload)) {
+        state.enabled = true;
+      }
       state.age = payload;
+    },
+    TOGGLE_ENABLED(state, payload) {
+      state.enabled = payload;
     },
   },
   actions: {
