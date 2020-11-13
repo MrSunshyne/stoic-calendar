@@ -17,6 +17,7 @@
 </template>
 
 <script>
+import { mapGetters } from "vuex";
 export default {
   components: {},
   data() {
@@ -26,9 +27,10 @@ export default {
     };
   },
   computed: {
-    weeksCount() {
-      return this.$route.params.count;
-    },
+    ...mapGetters(["weeksCount"]),
+    // weeksCount() {
+    //   return this.$route.params.count;
+    // },
     daysLived() {
       return this.weeksCount * 7;
     },
@@ -39,6 +41,11 @@ export default {
     },
     isActive(yearId) {
       return yearId <= this.weeksCount;
+    },
+  },
+  watch: {
+    weeksCount(week) {
+      console.log(week);
     },
   },
 };
