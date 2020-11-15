@@ -5,11 +5,8 @@
     </div>
     <div class="flex flex-col justify-center">
       <div class="flex flex-col gap-3 justify-center text-center ">
-        <div class="text-center uppercase text-sm text-gray-400 flex items-center justify-center gap-2">
-          <div>
-            Type in your date of birth?
-          </div>
-          <button class="cursor-pointer hover:text-black" @click="hideDatepicker = !hideDatepicker">
+        <div class="text-center uppercase tracking-widest text-lg text-gray-400 flex items-center justify-center gap-2">
+          <button class="cursor-pointer hover:text-black" @click="hideDatepicker = !hideDatepicker" title="I prefer datepickers">
             <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
               <path
                 stroke-linecap="round"
@@ -19,6 +16,9 @@
               ></path>
             </svg>
           </button>
+          <div>
+            Type in your date of birth
+          </div>
         </div>
         <div class="text-5xl font-serif">
           <!-- {{ getDob }} -->

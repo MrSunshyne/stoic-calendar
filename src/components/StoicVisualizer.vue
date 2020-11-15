@@ -25,6 +25,11 @@
         </svg>
       </a>
     </div>
+    <div class="text-center py-10 print:hidden">
+      <p>
+        Get a printed version by clicking <a class="cursor-pointer" onClick="window.print()"><strong>here</strong></a>
+      </p>
+    </div>
     <!-- <div v-else>
       pick date pls
     </div> -->
