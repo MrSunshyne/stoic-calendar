@@ -1,5 +1,32 @@
 <template>
-  <div>
-    hey chill, don't stress
+  <div class="container mx-auto">
+    <div class="prose py-10 text-gray-500">
+      <router-link :to="{ name: 'Home' }" class="flex items-center gap-2 mb-4 text-black"
+        ><div>
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 15l-3-3m0 0l3-3m-3 3h8M3 12a9 9 0 1118 0 9 9 0 01-18 0z"></path>
+          </svg>
+        </div>
+        Back to the calendar</router-link
+      >
+      <h1>What is a stoic calendar?</h1>
+      <p>hey chill, don't stress</p>
+
+      <h2>Inspiration</h2>
+      <p>From this post <a class="text-black" href="https://stoicreflections.com/products/memento-mori-life-calendar-framed">Stoic Reflections</a></p>
+
+      <h2>Contribute?</h2>
+      <p>This project open source. Feel free to take a look <a class="text-black" href="https://github.com/MrSunshyne/stoic-calendar"> on github</a></p>
+    </div>
   </div>
 </template>
+
+<style lang="postcss" scoped>
+.prose a {
+  color: theme(colors.black);
+}
+
+.prose a:hover {
+  color: theme(colors.gray.500);
+}
+</style>

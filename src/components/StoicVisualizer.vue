@@ -1,6 +1,11 @@
 <template>
   <div id="viz" class="container mx-auto">
     <div class="years pt-10" v-if="isEnabled">
+      <!-- <a class="go-to-viz text-center grid place-items-center relative" href="#viz">
+        <svg class="w-12 h-12" fill="none" stroke="black" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+        </svg>
+      </a> -->
       <div class="weeks leading-none" v-for="(year, yearIndex) in years" :key="yearIndex">
         <div v-for="(week, weekIndex) in weeks" class="week relative " :key="yearId(yearIndex, weekIndex)">
           <div
@@ -115,20 +120,36 @@ export default {
   width: calc(var(--size) / 2);
   height: calc(var(--size) / 2);
   margin: calc(var(--size) / 10) 0;
-  transition-property: all;
+  /* transition-property: all;
   transition-duration: 0.8s;
   transition-delay: calc(var(--animation-order) * var(--delay-multiplier));
-  transition-timing-function: linear;
+  transition-timing-function: linear; */
+  /* animation-name: unpaint;
+  animation-duration: 0.8s;
+  animation-delay: calc(calc(var(--animation-order) * var(--delay-multiplier)));
+  animation-timing-function: linear;
+  animation-fill-mode: forwards; */
 }
 
 .isActive {
   /* border-width: 4px;
    */
-  background: black;
-  transition-property: all;
-  transition-duration: 0.8s;
-  transition-delay: calc(var(--animation-order) * var(--delay-multiplier));
-  transition-timing-function: linear;
+  /* background: black; */
+  /* transition-property: all; */
+  animation-name: paint;
+  animation-duration: 0.8s;
+  animation-delay: calc(calc(var(--animation-order) * var(--delay-multiplier)));
+  animation-timing-function: linear;
+  animation-fill-mode: forwards;
   /* animation: paint 2s linear alternate forwards; */
+}
+
+@keyframes paint {
+  0% {
+    background: transparent;
+  }
+  100% {
+    background: black;
+  }
 }
 </style>

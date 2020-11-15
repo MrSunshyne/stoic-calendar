@@ -4,7 +4,7 @@
       <div class="flex flex-col gap-3 justify-center text-center ">
         <div class="text-center uppercase text-sm text-gray-400 flex items-center justify-center gap-2">
           <div>
-            Enter your date of birth?
+            Type in your date of birth?
           </div>
           <button class="cursor-pointer hover:text-black" @click="hideDatepicker = !hideDatepicker">
             <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -19,13 +19,19 @@
         </div>
         <div class="text-5xl font-serif">
           <!-- {{ getDob }} -->
-          <input v-if="hideDatepicker" type="text" v-model="getAge" placeholder="3 Dec 1989" class="w-full date-text text-center border-b" />
+          <input v-if="hideDatepicker" type="text" v-model="temporaryAge" placeholder="3 Dec 1989" class="w-full date-text text-center border-b" />
           <div class="" v-else>
             <birth-datepicker class="w-full" v-model="getAge" :inline="true" />
           </div>
+          <router-link :to="{ name: 'about' }" class="text-lg py-4 text-black  hover:text-gray-500 tracking-wider">What is a stoic calendar?</router-link>
         </div>
       </div>
     </div>
+    <a @click="applyAge()" class="go-to-viz text-center grid place-items-center relative" href="#viz">
+      <svg class="w-12 h-12" fill="none" stroke="black" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+      </svg>
+    </a>
   </div>
 </template>
 
@@ -39,6 +45,7 @@ export default {
   data() {
     return {
       hideDatepicker: true,
+      temporaryAge: null,
     };
   },
   computed: {
@@ -51,6 +58,11 @@ export default {
       },
     },
     ...mapGetters(["weeksCount", "getDob"]),
+  },
+  methods: {
+    applyAge: function() {
+      this.$store.commit("SET_AGE", this.temporaryAge);
+    },
   },
 };
 </script>
