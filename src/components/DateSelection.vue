@@ -1,5 +1,8 @@
 <template>
   <div id="start" class="date-selection grid place-items-center container mx-auto">
+    <div>
+      &nbsp;
+    </div>
     <div class="flex flex-col justify-center">
       <div class="flex flex-col gap-3 justify-center text-center ">
         <div class="text-center uppercase text-sm text-gray-400 flex items-center justify-center gap-2">
@@ -76,7 +79,7 @@ export default {
   height: 20vh;
 }
 .date-selection {
-  height: 60vh;
+  height: 100vh;
 }
 
 .date-text {
