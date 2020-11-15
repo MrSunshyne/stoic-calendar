@@ -1,5 +1,5 @@
 <template>
-  <div id="start" class="date-selection grid place-items-center container mx-auto">
+  <div id="start" class="date-selection grid place-items-center container mx-auto print:hidden">
     <div>
       &nbsp;
     </div>

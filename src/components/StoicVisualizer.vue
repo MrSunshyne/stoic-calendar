@@ -10,7 +10,7 @@
         <div v-for="(week, weekIndex) in weeks" class="week relative " :key="yearId(yearIndex, weekIndex)">
           <div
             class="singleWeek text-xs text-center border border-black"
-            :class="{ isActive: isActive(yearId(yearIndex, weekIndex)) }"
+            :class="{ 'isActive print:border-4': isActive(yearId(yearIndex, weekIndex)) }"
             :style="`--animation-order: ${yearId(yearIndex, weekIndex)};`"
           >
             <!-- {{ yearId(yearIndex, weekIndex) }} -->
