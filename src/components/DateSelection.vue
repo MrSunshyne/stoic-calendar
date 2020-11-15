@@ -80,7 +80,7 @@ export default {
 }
 
 .go-to-viz {
-  height: 20vh;
+  /* height: 20vh; */
 }
 .date-selection {
   height: 90vh;

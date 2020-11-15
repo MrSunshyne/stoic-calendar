@@ -25,8 +25,8 @@ export default {
 };
 </script>
 
-<style lang="css" scoped>
+<style lang="css">
 .home {
-  padding: 5vh 5vw;
+  padding: calc(5vh - 16px) 5vw;
 }
 </style>
