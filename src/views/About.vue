@@ -10,8 +10,13 @@
         Back to the calendar</router-link
       >
       <h1>What is a stoic calendar?</h1>
-      <p>hey chill, don't stress</p>
-
+      <p>
+        This calendar was designed as an interactive tool to help you harness the concept by visualizing your life week by week. 
+        By filling a new square with each passing week, you'll hopefully experience improved focus, a heightened perspective on life, and a rush of motivation to take consistent action.
+        Being aware of your mortality may sound scary, but it’s an extremely effective catalyst for reflection and change.
+        It puts all the things that don’t matter into perspective, melts away fears, and clears a path for you to focus on what's truly important.
+        The weekly ritual of filling in a new square will jolt you into the present moment and give you the motivation and drive to take action week after week.
+      </p>
       <h2>Inspiration</h2>
       <p>From this post <a class="text-black" href="https://stoicreflections.com/products/memento-mori-life-calendar-framed">Stoic Reflections</a></p>
 
@@ -30,3 +35,4 @@
   color: theme(colors.gray.500);
 }
 </style>
+>
