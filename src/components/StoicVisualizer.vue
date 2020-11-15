@@ -1,6 +1,6 @@
 <template>
-  <div class="container mx-auto pt-10">
-    <div class="years" v-if="isEnabled">
+  <div id="viz" class="container mx-auto">
+    <div class="years pt-10" v-if="isEnabled">
       <div class="weeks leading-none" v-for="(year, yearIndex) in years" :key="yearIndex">
         <div v-for="(week, weekIndex) in weeks" class="week relative " :key="yearId(yearIndex, weekIndex)">
           <div
@@ -14,10 +14,15 @@
         <!-- Show Age -->
         <div class="text-gray-400 border-b text-center text-sm">{{ yearIndex + 1 }}</div>
       </div>
+      <a class="text-center grid place-items-center h-20" href="#start">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 15l7-7 7 7"></path>
+        </svg>
+      </a>
     </div>
-    <div v-else>
+    <!-- <div v-else>
       pick date pls
-    </div>
+    </div> -->
   </div>
 </template>
 
@@ -77,6 +82,12 @@ export default {
   align-items: center;
 }
 
+@media screen and (min-width: 1600px) {
+  .weeks {
+    --size: 32px;
+  }
+}
+
 .years {
   display: grid;
   /* gap: 10px; */
@@ -103,7 +114,7 @@ export default {
   display: block;
   width: calc(var(--size) / 2);
   height: calc(var(--size) / 2);
-  margin: calc(var(--size) / 2) 0;
+  margin: calc(var(--size) / 10) 0;
   transition-property: all;
   transition-duration: 0.8s;
   transition-delay: calc(var(--animation-order) * var(--delay-multiplier));
