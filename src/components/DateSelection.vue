@@ -83,7 +83,7 @@ export default {
   height: 20vh;
 }
 .date-selection {
-  height: 100vh;
+  height: 90vh;
 }
 
 .date-text {

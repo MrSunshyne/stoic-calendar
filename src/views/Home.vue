@@ -1,10 +1,11 @@
 <template>
-  <div class="">
-    <div class="grid">
-      <DateSelection />
+  <div class="home grid place-items-center bg-black ">
+    <div class="border-8 bg-white w-full ">
+      <div class="grid border-8 border-black w-full bg-white px-10">
+        <DateSelection />
 
-      <!-- <router-link :to="{ name: 'visualizer', params: { count: weeksCount } }">Visualize</router-link> -->
-      <StoicVisualizer />
+        <StoicVisualizer />
+      </div>
     </div>
   </div>
 </template>
@@ -23,3 +24,9 @@ export default {
   },
 };
 </script>
+
+<style lang="css" scoped>
+.home {
+  padding: 5vh 5vw;
+}
+</style>
