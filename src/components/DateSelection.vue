@@ -4,7 +4,7 @@
       <div class="">
         <birth-datepicker class="w-full" v-model="getAge" :hideHeader="true" :inline="true" />
       </div>
-      <div class="w-1/4 flex flex-col justify-center text-center ">
+      <div class="flex flex-col justify-center text-center ">
         <div class="text-center uppercase font-bold text-sm text-gray-400">
           Select your date of birth
         </div>

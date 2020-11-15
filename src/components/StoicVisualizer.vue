@@ -3,7 +3,11 @@
     <div class="years" v-if="isEnabled">
       <div class="weeks leading-none" v-for="(year, yearIndex) in years" :key="yearIndex">
         <div v-for="(week, weekIndex) in weeks" class="week relative " :key="yearId(yearIndex, weekIndex)">
-          <div class="singleWeek text-xs text-center border border-black" :class="{ isActive: isActive(yearId(yearIndex, weekIndex)) }">
+          <div
+            class="singleWeek text-xs text-center border border-black"
+            :class="{ isActive: isActive(yearId(yearIndex, weekIndex)) }"
+            :style="`--animation-order: ${yearId(yearIndex, weekIndex)};`"
+          >
             <!-- {{ yearId(yearIndex, weekIndex) }} -->
           </div>
         </div>
@@ -65,6 +69,7 @@ export default {
 <style scoped lang="css">
 .weeks {
   --size: 16px;
+  --delay-multiplier: 1ms;
   display: grid;
   /* gap: 10px; */
   /* grid-template-columns: repeat(53, calc(var(--size) + 20px)); */
@@ -99,14 +104,20 @@ export default {
   width: calc(var(--size) / 2);
   height: calc(var(--size) / 2);
   margin: calc(var(--size) / 2) 0;
-  transition: background 0.5s ease-in-out;
+  transition-property: all;
+  transition-duration: 0.8s;
+  transition-delay: calc(var(--animation-order) * var(--delay-multiplier));
+  transition-timing-function: linear;
 }
 
 .isActive {
   /* border-width: 4px;
    */
   background: black;
-  transition: background 0.8s linear;
+  transition-property: all;
+  transition-duration: 0.8s;
+  transition-delay: calc(var(--animation-order) * var(--delay-multiplier));
+  transition-timing-function: linear;
   /* animation: paint 2s linear alternate forwards; */
 }
 </style>
