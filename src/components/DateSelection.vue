@@ -1,8 +1,5 @@
 <template>
   <div id="start" class="date-selection grid place-items-center container mx-auto print:hidden">
-    <div>
-      &nbsp;
-    </div>
     <div class="flex flex-col justify-center">
       <div class="flex flex-col gap-3 justify-center text-center ">
         <div class="text-center uppercase tracking-widest text-lg text-gray-400 flex items-center justify-center gap-2">
@@ -22,19 +19,26 @@
         </div>
         <div class="text-5xl font-serif">
           <!-- {{ getDob }} -->
-          <input v-if="hideDatepicker" type="text" v-model="temporaryAge" placeholder="3 Dec 1989" class="w-full date-text text-center border-b" />
+          <form @submit.prevent="applyAge()" v-if="hideDatepicker">
+            <input
+              type="text"
+              v-model="temporaryAge"
+              placeholder="3 Dec 1989"
+              class="w-full date-text text-center border-b focus:outline-none focus:border-black"
+            />
+          </form>
           <div class="" v-else>
             <birth-datepicker class="w-full" v-model="getAge" :inline="true" />
           </div>
           <router-link :to="{ name: 'about' }" class="text-lg py-4 text-black  hover:text-gray-500 tracking-wider">What is a stoic calendar?</router-link>
         </div>
       </div>
+      <a @click="applyAge()" class="go-to-viz text-center grid place-items-center relative" href="#viz">
+        <svg class="w-12 h-12" fill="none" stroke="black" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+        </svg>
+      </a>
     </div>
-    <a @click="applyAge()" class="go-to-viz text-center grid place-items-center relative" href="#viz">
-      <svg class="w-12 h-12" fill="none" stroke="black" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
-      </svg>
-    </a>
   </div>
 </template>
 

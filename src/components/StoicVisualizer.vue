@@ -24,11 +24,11 @@
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 15l7-7 7 7"></path>
         </svg>
       </a>
-    </div>
-    <div class="text-center py-10 print:hidden">
-      <p>
-        Get a printed version by clicking <a class="cursor-pointer" onClick="window.print()"><strong>here</strong></a>
-      </p>
+      <div class="text-center py-10 print:hidden">
+        <p>
+          Get a printed version by clicking <a class="cursor-pointer" onClick="window.print()"><strong>here</strong></a>
+        </p>
+      </div>
     </div>
     <!-- <div v-else>
       pick date pls
