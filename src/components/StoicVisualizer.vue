@@ -10,14 +10,14 @@
         <div v-for="(week, weekIndex) in weeks" class="week relative " :key="yearId(yearIndex, weekIndex)">
           <div
             class="singleWeek text-xs text-center border border-black"
-            :class="{ 'isActive print:border-4': isActive(yearId(yearIndex, weekIndex)) }"
+            :class="{ 'isActive print:border-1': isActive(yearId(yearIndex, weekIndex)) }"
             :style="`--animation-order: ${yearId(yearIndex, weekIndex)};`"
           >
             <!-- {{ yearId(yearIndex, weekIndex) }} -->
           </div>
         </div>
         <!-- Show Age -->
-        <div class="text-gray-400 border-b text-center text-sm">{{ yearIndex + 1 }}</div>
+        <div class="text-gray-400 border-b text-center text-sm"> {{ setYear(yearIndex) }} </div>
       </div>
       <a class="text-center grid place-items-center h-20" href="#start">
         <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -70,6 +70,10 @@ export default {
     isActive(yearId) {
       return yearId <= this.weeksCount;
     },
+    setYear(yearIndex) {
+      let year = yearIndex + 1 ;
+      return (year > 9) ? year : '0' + year;
+    }
   },
 };
 </script>
@@ -136,6 +140,11 @@ export default {
   animation-fill-mode: forwards; */
 }
 
+@media screen and (max-width: 600px) {
+  .singleWeek {
+     width: calc(var(--size) / 4);
+  }
+}
 .isActive {
   /* border-width: 4px;
    */
